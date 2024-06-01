@@ -1,0 +1,22 @@
+{
+  "name": "otus-homework",
+  "version": "1.0.0",
+  "description": "otus-homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chzhkv/OTUS-Homework.git"
+  },
+  "author": "Chizhik V.O.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chzhkv/OTUS-Homework/issues"
+  },
+  "homepage": "https://github.com/chzhkv/OTUS-Homework#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
