@@ -4,7 +4,7 @@ console.log ('Задача 1: ' + (a + b), (a * b));
 
 const c = 'test';
 const d = 'text';
-console.log ('Задача 2: ' + (c.length + d.length))
+console.log ('Задача 2: ' + (c.length + d.length));
 
 let input;
 
