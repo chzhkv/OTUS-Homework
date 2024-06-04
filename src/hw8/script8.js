@@ -1,3 +1,5 @@
+import { formatDate } from "./formatDate.js";
+
 const input = prompt('Enter a date (DD.MM.YYYY)');
 const [day, month, year] = input.split('.');
 const inputDate = new Date(`${year}-${month}-${day}`);
@@ -22,16 +24,9 @@ const minutes = date.getMinutes();
 
 console.log('Задача 2: ' + (hours * 60 + minutes));
 
-
-
 const firstBirthDate = '21.04.2002';
 const secondBirthDate = '20.04.2002';
 
-function formatDate (date) {
-    const [dayN, monthN, yearN] = date.split('.');
-    const formatedDate = +new Date(`${yearN}-${monthN}-${dayN}`);
-    return formatedDate;
-}
 console.log('Задача 3:');
 (formatDate(firstBirthDate) < formatDate(secondBirthDate)) ? console.log('Первый моложе')
     : ((formatDate(firstBirthDate) > formatDate(secondBirthDate)) ? console.log('Второй моложе')

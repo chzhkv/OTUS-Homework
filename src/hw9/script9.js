@@ -1,3 +1,5 @@
+import { solve } from "./solve.js";
+
 const a = 3;
 const b = 4;
 const c = 5;
@@ -17,22 +19,8 @@ const circleSquare = Math.PI * Math.pow(radius, 2);
 console.log(`Длина окружности = ${circleLength.toFixed(2)}, Площадь круга = ${circleSquare.toFixed(2)}`);
 
 
-
 const A = +prompt('Enter a:');
 const B = +prompt('Enter b:');
 const C = +prompt('Enter c:');
-
-function solve(a, b, c) {
-    var discriminant = b * b - 4 * a * c;
-    if (discriminant < 0) {
-        console.log('Уравнение не имеет реальных корней');
-    } else if (discriminant === 0) {
-        console.log('Уравнение имеет один корень: ' + (-b / (2 * a)));
-    } else {
-        var root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-        var root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-        console.log('Уравнение имеет два корня: ' + root1 + ' и ' + root2);
-    }
-}
 
 solve(A, B, C);
