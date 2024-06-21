@@ -46,6 +46,7 @@ describe ('using function "isWord" for detection that input consist of 1 or more
 
     it('if argument have one word - return true ', () => {
         expect(isWord('word')).toBeTruthy();
+        expect(isWord('     word       ')).toBeTruthy();
     });
 
      it('if argument have more than one word - return false ', () => {
