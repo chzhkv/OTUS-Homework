@@ -1,12 +1,12 @@
-export const pow = (a, x) => {
+export const pow = () => {
+    let number = prompt('Enter a number:');
+    let degree = prompt('Enter a degree:');
     let res = 1
-    for (let i=1; i <= x; i++) {
-        res = res * a;
+    for (let i=1; i <= degree; i++) {
+        res = res * number;
     }
-    return res;
+    return console.log(res);
 }
 
-let number = prompt('Enter a number:');
-let degree = prompt('Enter a degree:');
+pow();
 
-console.log(pow(number, degree));

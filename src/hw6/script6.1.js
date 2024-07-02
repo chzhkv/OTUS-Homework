@@ -1,14 +1,13 @@
-export const diff = (a, b) => {
-    if (a > b) {
-        console.log(a-b);
-        return a-b;
+export const diff = () => {
+    let number1 = +prompt('Enter first number:');
+    let number2 = +prompt('Enter second number:');
+    if (number1 > number2) {
+        console.log(number1-number2);
+        return number1-number2;
     } else {
-        console.log(b-a);
-        return b-a;
+        console.log(number2-number1);
+        return number2-number1;
     }
-}
+};
 
-let number1 = +prompt('Enter first number:');
-let number2 = +prompt('Enter second number:');
-
-diff(number1, number2);
+diff();

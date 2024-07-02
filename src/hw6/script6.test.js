@@ -2,49 +2,33 @@ import { diff } from "./script6.1";
 import { isWord } from "./isWord";
 import { pow } from "./script6.3";
 
-describe ('using function "diff" for calculation differences between numbers', () => {
-    it('diff is a function', () => {
+global.prompt = jest.fn();
+describe ('diff function', () => {
+    it('is a function', () => {
         expect(diff).toBeInstanceOf(Function)
     });
 
-    it('if a=5, b=3 then answer = 2', () => {
-        expect(diff(5,3)).toBe(2)
+    it('should return the difference between the two numbers when the first number is larger', () => {
+        prompt.mockImplementationOnce(() => '10').mockImplementationOnce(() => '5');
+        expect(diff()).toBe(5);
     });
 
-    it('if a=1, b=4 then answer = 3', () => {
-        expect(diff(1,4)).toBe(3)
+    it('should return the difference between the two numbers when the second number is larger', () => {
+        prompt.mockImplementationOnce(() => '4').mockImplementationOnce(() => '10');
+        expect(diff()).toBe(6);
     });
 
-    it('if arguments are not defined', () => {
+    it('should return NaN if arguments are not defined', () => {
         expect(diff()).toBeNaN()
     });
+});
 
-    it('after typing empty string into arguments answer should be = 0', () => {
-        expect(diff('','')).toBe(0)
-    });
-
-})
-describe ('using function "pow" for raise to a power entered digit "a" to entered degree "x"', () => {
-    it('pow is a function', () => {
-        expect(pow).toBeInstanceOf(Function)
-    });
-
-    it('if a=9, x=2 then answer = 81', () => {
-        expect(pow(9,2)).toBe(81)
-    });
-
-    it('random digit on random degree should be true', () => {
-        expect(pow(Math.ceil(Math.random() * 10),Math.ceil(Math.random() * 10))).toBeTruthy()
-    });
-
-})
-
-describe ('using function "isWord" for detection that input consist of 1 or more words', () => {
-    it('isWord is a function', () => {
+describe ('isWord function', () => {
+    it('is a function', () => {
         expect(isWord).toBeInstanceOf(Function)
     });
 
-    it('if argument have one word - return true ', () => {
+    it('if argument have one word should return true ', () => {
         expect(isWord('word')).toBeTruthy();
         expect(isWord('     word       ')).toBeTruthy();
     });
@@ -54,4 +38,33 @@ describe ('using function "isWord" for detection that input consist of 1 or more
         expect(isWord('word word word')).toBeFalsy();
         expect(isWord('word word word word')).toBeFalsy();
     });
-})
+});
+
+describe('pow function', () => {
+    it('should calculate the power of a number', () => {
+        prompt.mockImplementationOnce(() => '2').mockImplementationOnce(() => '3');
+        console.log = jest.fn();
+        pow();
+        expect(prompt).toHaveBeenCalledTimes(2);
+        expect(console.log).toHaveBeenCalledTimes(1);
+        expect(console.log).toHaveBeenCalledWith(8);
+    });
+
+    it('should handle invalid inputs', () => {
+        prompt.mockImplementationOnce(() => 'abc').mockImplementationOnce(() => '3');
+        console.log = jest.fn();
+        pow();
+        expect(prompt).toHaveBeenCalledTimes(2);
+        expect(console.log).toHaveBeenCalledTimes(1);
+        expect(console.log).toHaveBeenCalledWith(NaN);
+    });
+
+    it('should handle zero degree', () => {
+        prompt.mockImplementationOnce(() => '2').mockImplementationOnce(() => '0');
+        console.log = jest.fn();
+        pow();
+        expect(prompt).toHaveBeenCalledTimes(2);
+        expect(console.log).toHaveBeenCalledTimes(1);
+        expect(console.log).toHaveBeenCalledWith(1);
+    });
+});
