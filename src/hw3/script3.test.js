@@ -1,6 +1,6 @@
 import {fiftySum} from "./fiftySum.js";
 import {sevenMulti} from "./sevenMulti.js";
-import {averageOdd} from "./averageOdd.js";
+import {arithmeticMeanOfOdd} from "./arithmeticMeanOfOdd.js";
 
 describe('fiftySum function', () => {
     it('should calculate the sum of numbers from 50 to 100', () => {
@@ -30,11 +30,11 @@ describe('sevenMulti function', () => {
 });
 
 global.prompt = jest.fn();
-describe('averageOdd function', () => {
+describe('arithmeticMeanOfOdd function', () => {
     it('should calculate the sum of odd numbers up to the input number', () => {
         prompt.mockImplementation(() => '10');
         console.log = jest.fn();
-        averageOdd();
+        arithmeticMeanOfOdd();
         expect(prompt).toHaveBeenCalledTimes(1);
         expect(console.log).toHaveBeenCalledTimes(1);
         expect(console.log).toHaveBeenCalledWith('Задача 3: 25');
